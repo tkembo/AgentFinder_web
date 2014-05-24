@@ -37,7 +37,7 @@ $(document).ready(function() {
 					  var address 	= '<p>'+ $(this).attr('address') +'</p>';
 					  var type 		= $(this).attr('type');
 					  var point 	= new google.maps.LatLng(parseFloat($(this).attr('lat')),parseFloat($(this).attr('lng')));
-					  create_marker(point, name, address, false, false, false, "http://telecelagentfinder.azurewebsites.net/icons/pin_blue.png");
+					  create_marker(point, name, address, false, false, false, "http://agentfinder.co/onewallet/icons/pin_blue.png");
 				});
 			});	
 			
@@ -54,7 +54,7 @@ $(document).ready(function() {
 				'</div></p><button name="save-marker" class="save-marker">Save Marker Details</button>';
 
 				//Drop a new Marker with our Edit Form
-				create_marker(event.latLng, 'New Marker', EditForm, true, true, true, "http://telecelagentfinder.azurewebsites.net/icons/pin_green.png");
+				create_marker(event.latLng, 'New Marker', EditForm, true, true, true, "http://agentfinder.co/onewallet/icons/pin_green.png");
 			});
 										
 	}
@@ -170,7 +170,7 @@ $(document).ready(function() {
 		  success:function(data){
 				replaceWin.html(data); //replace info window with new html
 				Marker.setDraggable(false); //set marker to fixed
-				Marker.setIcon('http://telecelagentfinder.azurewebsites.net/icons/pin_blue.png'); //replace icon
+				Marker.setIcon('http://agentfinder.co/onewallet/icons/pin_blue.png'); //replace icon
             },
             error:function (xhr, ajaxOptions, thrownError){
                 alert(thrownError); //throw any errors

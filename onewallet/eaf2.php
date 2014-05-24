@@ -132,7 +132,7 @@ function logic_distance($distkm){
 
 function print_locs($locs){
 	GLOBAL $flat, $flng, $n1lat, $n1lng, $n2lat, $n2lng;
-	$maps_url = "http://telecelagentfinder.azurewebsites.net/eaf_directions.php"; 
+	$maps_url = "http://agentfinder.co/onewallet/eaf_directions.php"; 
 	$mapsq1 = $maps_url."?flat=".urlencode($flat)."&flng=".urlencode($flng)."&tlat=".urlencode($n1lat)."&tlng=".urlencode($n1lng);
 	$mapsq2 = $maps_url."?flat=".urlencode($flat)."&flng=".urlencode($flng)."&tlat=".urlencode($n2lat)."&tlng=".urlencode($n2lng);
 	//var_dump($locs);
