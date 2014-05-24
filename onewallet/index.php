@@ -3,7 +3,7 @@
 <head>
 <title>Google Map</title>
 <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBUQ5bHjIiDBHK4wPAjhxtgssLk7GqlzMU&sensor=false"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAsYHFa8AZehpvQwQ1A780Su61kN4H9nP0&sensor=false"></script>
 <script type="text/javascript">
 $(document).ready(function() {
 
@@ -37,7 +37,7 @@ $(document).ready(function() {
 					  var address 	= '<p>'+ $(this).attr('address') +'</p>';
 					  var type 		= $(this).attr('type');
 					  var point 	= new google.maps.LatLng(parseFloat($(this).attr('lat')),parseFloat($(this).attr('lng')));
-					  create_marker(point, name, address, false, false, false, "http://agentfinder.co/onewallet/icons/pin_blue.png");
+					  create_marker(point, name, address, false, false, false, "http://agentfinder.co/common/icons/pin_blue.png");
 				});
 			});	
 			
@@ -54,7 +54,7 @@ $(document).ready(function() {
 				'</div></p><button name="save-marker" class="save-marker">Save Marker Details</button>';
 
 				//Drop a new Marker with our Edit Form
-				create_marker(event.latLng, 'New Marker', EditForm, true, true, true, "http://agentfinder.co/onewallet/icons/pin_green.png");
+				create_marker(event.latLng, 'New Marker', EditForm, true, true, true, "http://agentfinder.co/common/icons/pin_green.png");
 			});
 										
 	}
@@ -170,7 +170,7 @@ $(document).ready(function() {
 		  success:function(data){
 				replaceWin.html(data); //replace info window with new html
 				Marker.setDraggable(false); //set marker to fixed
-				Marker.setIcon('http://agentfinder.co/onewallet/icons/pin_blue.png'); //replace icon
+				Marker.setIcon('http://agentfinder.co/common/icons/pin_blue.png'); //replace icon
             },
             error:function (xhr, ajaxOptions, thrownError){
                 alert(thrownError); //throw any errors

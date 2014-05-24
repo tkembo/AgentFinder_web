@@ -1,3 +1,6 @@
+<?php
+	require_once("../connections/database_agent_finder.php");
+?>
 <html>
 <head>
 <style>
@@ -65,16 +68,7 @@ GLOBAL $flat, $flng, $n1lat, $n1lng, $n2lat, $n2lng;
 
 function get_handle(){
 	GLOBAL $flat, $flng, $n1lat, $n1lng, $n2lat, $n2lng;
-	$user = "";
-	$pass = "";
-	$db = "";
 	
-	$user = "b083b38d0e19d6";
-	$pass = "dd69b7a2";
-	$db = "agentfinder";
-	
-	$cry = $_SERVER['SERVER_NAME'];
-	$conn = @mysql_connect("us-cdbr-azure-west-a.cloudapp.net", $user, $pass);
 	if ( !is_resource($conn) ){
 		echo $cry."\n\n";
 		return false;
@@ -94,7 +88,7 @@ if (!is_resource($conn)){
 	exit();
 	
 	}
-mysql_select_db("agentfinder", $conn);
+mysql_select_db($db, $conn);
 
 $lat = @$_GET['latitude'];
 $long = @$_GET['longitude'];
