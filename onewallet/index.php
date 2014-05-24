@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>Google Map</title>
-<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="../common/js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAsYHFa8AZehpvQwQ1A780Su61kN4H9nP0&sensor=false"></script>
 <script type="text/javascript">
 $(document).ready(function() {
