@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Google Map</title>
+<title>Agent Finder</title>
 <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD2Udawtju2XkRqD1qrut83wvZpa5keH7Q&sensor=false"></script>
 <script type="text/javascript">
@@ -49,7 +49,9 @@ $(document).ready(function() {
 				'<label for="pName"><span>Place Name :</span><input type="text" name="pName" class="save-name" placeholder="Enter Title" maxlength="40" /></label>'+
 				'<label for="pDesc"><span>Description :</span><textarea name="pDesc" class="save-desc" placeholder="Enter Address" maxlength="150"></textarea></label>'+
 				'<label for="pType"><span>Type :</span> <select name="pType" class="save-type"><option value="store">Store</option><option value="shopping_mall">Shopping Mall</option>'+
-				'<option value="grocery_or_supermarket">Grocery of Supermarket</option><<option value="post_office">Post Office</option></select></label>'+
+				'<option value="grocery_or_supermarket">Grocery of Supermarket</option><option value="post_office">Post Office</option></select></label>'+
+				'<label for="agentType"><span>Agent Type :</span> <select name="agentType" class="save-agent_type"><option value="1">Ecocash</option><option value="2">Telecash</option>'+
+				'<option value="3">Onewallet</option></select></label>'+
 				'</form>'+
 				'</div></p><button name="save-marker" class="save-marker">Save Marker Details</button>';
 
@@ -204,7 +206,7 @@ button.save-marker, button.remove-marker{border: none;background: rgba(0, 0, 0, 
 </style>
 </head>
 <body>             
-<h1 class="heading">Save TeleCash Agents location</h1>
+<h1 class="heading">Save Agent's location</h1>
 <div align="center">Right Click to Drop a New Marker</div>
 <div id="google_map"></div>
 </body>

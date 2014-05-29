@@ -26,7 +26,7 @@ function has_fields(){
 <head> 
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
-<title>Directions to the nearest TeleCash Agent</title> 
+<title>Directions to the nearest Agent</title> 
 <style>
 
 .notifs {
@@ -131,7 +131,7 @@ function has_fields(){
 				?>
 				var el = document.getElementById("finderinfo");
 				
-				el.innerHTML = "<div class='notifsholder'><div class='notifs'>Maps couldn't find a clear route between the TeleCash Agent and yourself. Showing the Agent only</div></div>";
+				el.innerHTML = "<div class='notifsholder'><div class='notifs'>Maps couldn't find a clear route between the Agent and yourself. Showing the Agent only</div></div>";
 				}
 				
           }

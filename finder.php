@@ -140,6 +140,7 @@ function print_locs($locs){
 	$str2 .= "<p><b>How far? (Bird flight distance)</b><br/>About ".logic_distance($locs[1]['distance'])." from you</p>";
 	$str2 .= "<p><b>Address</b><br/>".$locs[1]['address']."</p>";
 	$str2 .= "<p><b>Type</b><br/>".$locs[1]['type']."</p>";
+	$str2 .= "<p><b>Agent Type</b><br/>".$locs[1]['agent_type_id']."</p>";
 	
 	
 	echo $str1;

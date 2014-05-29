@@ -38,8 +38,9 @@ if($_POST) //run only if there's a post data
 	$mName 		= filter_var($_POST["name"], FILTER_SANITIZE_STRING);
 	$mAddress 	= filter_var($_POST["address"], FILTER_SANITIZE_STRING);
 	$mType		= filter_var($_POST["type"], FILTER_SANITIZE_STRING);
+	$agentType		= filter_var($_POST["agent_type"], FILTER_SANITIZE_STRING);
 	
-	$results = $mysqli->query("INSERT INTO markers (name, address, lat, lng, type) VALUES ('$mName','$mAddress',$mLat, $mLng, '$mType')");
+	$results = $mysqli->query("INSERT INTO markers (name, address, lat, lng, type, agent_type_id) VALUES ('$mName','$mAddress',$mLat, $mLng, '$mType')");
 	if (!$results) {  
 		  header('HTTP/1.1 500 Error: Could not create marker!'); 
 		  exit();
