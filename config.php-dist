@@ -1,0 +1,10 @@
+<?php
+    // database settings 
+    $db_username = 'PASSWORD';
+    $db_password = 'USERNAME';
+    $db_name = 'DBNAME';
+    $db_host = 'HOSTNAME';
+    
+    //mysqli
+    $mysqli = new mysqli($db_host, $db_username, $db_password, $db_name);
+?>
