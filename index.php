@@ -7,6 +7,8 @@
 <script type="text/javascript">
 $(document).ready(function() {
 
+
+
 	var mapCenter = new google.maps.LatLng(-17.82922, 31.053961); //Google map Coordinates
 	var map;
 	
