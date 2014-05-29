@@ -1,5 +1,5 @@
 <?php
-	require_once("../connections/database_agent_finder.php");
+	require_once('config.php');
 ?>
 <html>
 <head>
@@ -8,7 +8,7 @@
 	-moz-box-shadow: inset 0px 1px 0px 0px #bbdaf7;
 	-webkit-box-shadow: inset 0px 1px 0px 0px #bbdaf7;
 	box-shadow: inset 0px 1px 0px 0px #bbdaf7;
-	background-color: #FF0000;
+	background-color: #FFFFFF;
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
 	border-radius: 2px;
@@ -23,10 +23,10 @@
 	text-shadow: 1px 1px 0px #528ecc;
 	}
 	.btn:hover {
-	background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #990000), color-stop(1, #CC0000) );
-	background: -moz-linear-gradient( center top, #990000 5%, #CC0000 100% );
+		background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #990000), color-stop(1, #CC0000) );
+		background:-moz-linear-gradient( center top, #990000 5%, #CC0000 100% );
 		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#990000', endColorstr='#CC0000');
-	background-color: #990000;
+		background-color:#990000;
 	}
 	.btn:active {
 		position:relative;
@@ -44,8 +44,8 @@
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
-	background-color: #FFCCCC;
-	border-color: #FF6666;
+	background-color: #FFFFFF;
+	border-color: #FFCCCC;
 		}	
 	.notifsholder {
 		display: block;
@@ -58,7 +58,7 @@
 <body style="font-family: Helvetica, Arial, sans serif">
 <div class='notifsholder'>
 	<div class="notifs">
-		<p>Get directions to the nearest TeleCash Agent from where you are using the buttons below. </p>	
+		<p>Get directions to the nearest Agent from your current location using the buttons below: </p>	
 	</div>
 </div>
 
@@ -69,11 +69,13 @@ GLOBAL $flat, $flng, $n1lat, $n1lng, $n2lat, $n2lng;
 function get_handle(){
 	GLOBAL $flat, $flng, $n1lat, $n1lng, $n2lat, $n2lng;
 	
+	$cry = $_SERVER['SERVER_NAME'];
+	$conn = @mysql_connect($db_host, $db_username, $db_password);
 	if ( !is_resource($conn) ){
 		echo $cry."\n\n";
 		return false;
 		}	
-	mysql_select_db($db);
+	mysql_select_db($db_name);
 	return $conn;
 }
 
@@ -83,24 +85,19 @@ if (isset($_GET['prev'])){
 
 $conn = get_handle(); //mysql_connect("localhost", "root", "");
 if (!is_resource($conn)){
-	echo "This isn't good, we are experiencing difficulties. The geeks have been warned.";
-	@mail("tkembo@gmail.com", "DB error", "Agent FInder");
+	echo "This isn't good, we are experiencing difficulties. Try again later.";
 	exit();
 	
 	}
-mysql_select_db($db, $conn);
+mysql_select_db($db_name, $conn);
 
 $lat = @$_GET['latitude'];
 $long = @$_GET['longitude'];
 $flat = $lat;
 $flng = $long;
 $loc = array("latitude"=>$lat, "longitude"=>$long);
-$email = "Lookup from Lat".$lat.", Longitude: ".$long;
-@mail("tkembo@gmail.com", "New user", $email);
 
 $res = find_closest($loc, $conn);
-
-//echo $lat."<br/><br/>".$long;
 
 if ( ($lat == 0) AND ($long == 0)){
 	echo "<p><i>Sorry but your phone's GPS says you're at 0' 0'. Somewhere in the Atlantic Ocean. This happens usually when there's an interruption of sorts when getting coordinates from the GPS satellites. Refresh GPS maybe?</i>";
@@ -128,7 +125,7 @@ function logic_distance($distkm){
 
 function print_locs($locs){
 	GLOBAL $flat, $flng, $n1lat, $n1lng, $n2lat, $n2lng;
-	$maps_url = "http://agentfinder.co/onewallet/eaf_directions.php"; 
+	$maps_url = "http://agentfinder.co/directions.php"; 
 	$mapsq1 = $maps_url."?flat=".urlencode($flat)."&flng=".urlencode($flng)."&tlat=".urlencode($n1lat)."&tlng=".urlencode($n1lng);
 	$mapsq2 = $maps_url."?flat=".urlencode($flat)."&flng=".urlencode($flng)."&tlat=".urlencode($n2lat)."&tlng=".urlencode($n2lng);
 	//var_dump($locs);
@@ -136,7 +133,7 @@ function print_locs($locs){
 	$str1 .= "<p><b><a class='btn' href='".$mapsq1."'>Get directions on Google Maps</a></b></p>";
 	$str1 .= "<p><b>How far? (Bird flight distance)</b><br/>About ".logic_distance($locs[0]['distance'])." from you</p>";
 	$str1 .= "<p><b>Address</b><br/>".$locs[0]['address']."</p>";
-	$str1 .= "<p><b>Location</b><br/>".$locs[0]['type']."</p>";			
+	$str1 .= "<p><b>Type: </b><br/>".$locs[0]['type']."</p>";			
 	
 	$str2 = "<p><hr style='width: 100%; border: 1px solid gray;' /><h3>Second closest agent is ".$locs[1]['name']."</h3></p>";
 	$str2 .= "<p><a class='btn' href='".$mapsq2."'>Get directions on Google Maps</b></a></p>";

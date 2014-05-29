@@ -127,9 +127,9 @@ function has_fields(){
 					});
 					
 				<?php
-				$aourl = "eaf_directions.php?ao&flat=".urlencode($flat)."&flng=".urlencode($flng)."&tlat=".urlencode($tlat)."&tlng=".urlencode($tlng);
+				$aourl = "directions.php?ao&flat=".urlencode($flat)."&flng=".urlencode($flng)."&tlat=".urlencode($tlat)."&tlng=".urlencode($tlng);
 				?>
-				var el = document.getElementById("eafinfo");
+				var el = document.getElementById("finderinfo");
 				
 				el.innerHTML = "<div class='notifsholder'><div class='notifs'>Maps couldn't find a clear route between the TeleCash Agent and yourself. Showing the Agent only</div></div>";
 				}
@@ -141,7 +141,7 @@ function has_fields(){
 </script> 
 </head> 
 <body style="margin:0px; padding:0px;" onLoad="initialize()">
-<div id='eafinfo'></div>
+<div id='finderinfo'></div>
 <div id="map_canvas" style="width:100%; height:100%">
 	<div class='notifs'>Please wait while map loads. You'll need to have an internet connection for it to load successfully</div>
 </div> 
