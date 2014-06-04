@@ -3,8 +3,8 @@
 <head>
 <title>Agent Finder</title>
 <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
-<!--<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD2Udawtju2XkRqD1qrut83wvZpa5keH7Q&sensor=false"></script>-->
+<!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>-->
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD2Udawtju2XkRqD1qrut83wvZpa5keH7Q&sensor=true"></script>
 <script type="text/javascript">
 $(document).ready(function() {
 
