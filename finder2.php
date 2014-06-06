@@ -132,7 +132,11 @@ function print_locs($locs){
 	$str1 .= "<p><b><a class='btn' href='".$mapsq1."'>Get directions on Google Maps</a></b></p>";
 	$str1 .= "<p><b>How far? (Bird flight distance)</b><br/>About ".logic_distance($locs[0]['distance'])." from you</p>";
 	$str1 .= "<p><b>Address</b><br/>".$locs[0]['address']."</p>";
-	$str1 .= "<p><b>Type: </b><br/>".$locs[0]['type']."</p>";			
+	$str1 .= "<p><b>Type: </b><br/>".$locs[0]['type']."</p>";	
+	$str1 .= "<p><b>Opening Time: </b><br/>".$locs[0]['opening_time']."</p>";	
+	$str1 .= "<p><b>Closing Time: </b><br/>".$locs[0]['closing_time']."</p>";	
+	$str1 .= "<p><b>Contact Details: </b><br/>".$locs[0]['contact_details']."</p>";	
+	$str1 .= "<p><b>Agent Code: </b><br/>".$locs[0]['agent_code']."</p>";			
 	
 	$str2 = "<p><hr style='width: 100%; border: 1px solid gray;' /><h3>Second closest agent is ".$locs[1]['name']."</h3></p>";
 	$str2 .= "<p><a class='btn' href='".$mapsq2."'>Get directions on Google Maps</b></a></p>";
@@ -140,7 +144,10 @@ function print_locs($locs){
 	$str2 .= "<p><b>Address</b><br/>".$locs[1]['address']."</p>";
 	$str2 .= "<p><b>Type</b><br/>".$locs[1]['type']."</p>";
 	$str2 .= "<p><b>Agent Type</b><br/>".$locs[1]['agent_type_id']."</p>";
-	
+	$str2 .= "<p><b>Opening Time: </b><br/>".$locs[1]['opening_time']."</p>";	
+	$str2 .= "<p><b>Closing Time: </b><br/>".$locs[1]['closing_time']."</p>";	
+	$str2 .= "<p><b>Contact Details: </b><br/>".$locs[1]['contact_details']."</p>";	
+	$str2 .= "<p><b>Agent Code: </b><br/>".$locs[1]['agent_code']."</p>";
 	
 	echo $str1;
 	echo $str2;
@@ -208,14 +215,10 @@ function find_closest($fr, $conn, $debug = false){
 	$n2lat = $near2['lat'];
 	$n2lng= $near2['lng'];
 	
-	
 	$out[] = $near1;
 	$out[] = $near2;
 	return $out;
-	
-	
 }
-
 
 function getDistance($lt1, $ln1, $lt2, $ln2){
 	$r = 6371;

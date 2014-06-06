@@ -38,9 +38,13 @@ if($_POST) //run only if there's a post data
 	$mName 		= filter_var($_POST["name"], FILTER_SANITIZE_STRING);
 	$mAddress 	= filter_var($_POST["address"], FILTER_SANITIZE_STRING);
 	$mType		= filter_var($_POST["type"], FILTER_SANITIZE_STRING);
-	$agentType		= filter_var($_POST["agent_type"], FILTER_SANITIZE_STRING);
+	$agentType	= filter_var($_POST["agent_type"], FILTER_SANITIZE_STRING);
+	$openingTime = filter_var($_POST["opening_time"], FILTER_SANITIZE_STRING);
+	$closingTime = filter_var($_POST["closing_time"], FILTER_SANITIZE_STRING);
+	$contactDetails = filter_var($_POST["contact_details"], FILTER_SANITIZE_STRING);
+	$agentCode = filter_var($_POST["agent_code"], FILTER_SANITIZE_STRING);
 	
-	$results = $mysqli->query("INSERT INTO markers (name, address, lat, lng, type, agent_type_id) VALUES ('$mName','$mAddress',$mLat, $mLng, '$mType')");
+	$results = $mysqli->query("INSERT INTO markers (name, address, lat, lng, type, agent_type_id, opening_time, closing_time, contact_details, agent_code) VALUES ('$mName','$mAddress',$mLat, $mLng, '$mType', '$openingTime', '$closingTime', '$contactDetails', '$agentCode')");
 	if (!$results) {  
 		  header('HTTP/1.1 500 Error: Could not create marker!'); 
 		  exit();
@@ -77,7 +81,11 @@ while($obj = $results->fetch_object())
   $newnode->setAttribute("address", $obj->address);  
   $newnode->setAttribute("lat", $obj->lat);  
   $newnode->setAttribute("lng", $obj->lng);  
-  $newnode->setAttribute("type", $obj->type);	
+  $newnode->setAttribute("type", $obj->type);
+  $newnode->setAttribute("opening_time", $obj->opening_time);
+  $newnode->setAttribute("closing_time", $obj->closing_time);
+  $newnode->setAttribute("contact_details", $obj->contact_details);
+  $newnode->setAttribute("agent_code", $obj->agent_code);
 }
 
 echo $dom->saveXML();

@@ -3,7 +3,7 @@
 <head>
 <title>Agent Finder</title>
 <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD2Udawtju2XkRqD1qrut83wvZpa5keH7Q&sensor=false"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD2Udawtju2XkRqD1qrut83wvZpa5keH7Q&sensor=true"></script>
 <script type="text/javascript">
 $(document).ready(function() {
 
@@ -52,6 +52,11 @@ $(document).ready(function() {
 				'<option value="grocery_or_supermarket">Grocery of Supermarket</option><option value="post_office">Post Office</option></select></label>'+
 				'<label for="agentType"><span>Agent Type :</span> <select name="agentType" class="save-agent_type"><option value="1">Ecocash</option><option value="2">Telecash</option>'+
 				'<option value="3">Onewallet</option></select></label>'+
+				
+				'<label for="opening_time"><span>Opening Time :</span> <input name="pOpeningTime" class="save-opening_time" type="time"/></label>'+
+				'<label for="closing_time"><span>Closing Time :</span> <input name="pClosingTime" class="save-closing_time" type="time"/></label>'+
+				'<label for="pContactDetails"><span>Contact Details :</span><textarea name="pContactDetails" class="save-contact_details" placeholder="" maxlength="150"></textarea></label>'+
+				'<label for="agent_code"><span>Agent Code:</span> <input name="pAgentCode" class="save-agent_code" type="text"/></label>'+
 				'</form>'+
 				'</div></p><button name="save-marker" class="save-marker">Save Marker Details</button>';
 
