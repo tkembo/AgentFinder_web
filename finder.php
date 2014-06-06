@@ -68,14 +68,13 @@ GLOBAL $flat, $flng, $n1lat, $n1lng, $n2lat, $n2lng;
 
 function get_handle(){
 	GLOBAL $flat, $flng, $n1lat, $n1lng, $n2lat, $n2lng;
-	
 	$cry = $_SERVER['SERVER_NAME'];
 	$conn = @mysql_connect($db_host, $db_username, $db_password);
 	if ( !is_resource($conn) ){
 		echo $cry."\n\n";
 		return false;
 		}	
-	mysql_select_db($db_name);
+	mysql_select_db('agentfinder');
 	return $conn;
 }
 
